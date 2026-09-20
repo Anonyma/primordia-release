@@ -9,7 +9,10 @@ import {syncOne,airtableProvider} from '../backend/airtable.mjs';
 import handler from '../netlify/functions/application.mjs';
 const input=version=>({id:randomUUID(),version,answers:Object.fromEntries(schemas[version].questions.map(q=>[q.key,q.type==='email'?'synthetic@example.invalid':q.type==='number'?'100':'Synthetic answer'])),honeypot:''});
 test('real PostgreSQL: atomic intake, immutable originals, concurrent retries, schema history, sync recovery and spam limits',{skip:!process.env.TEST_DATABASE_URL},async()=>{
- const pool=new pg.Pool({connectionString:process.env.TEST_DATABASE_URL});
+ const admin=new pg.Pool({connectionString:process.env.TEST_DATABASE_URL});
+ const namespace='test_'+randomUUID().replaceAll('-','');
+ await admin.query('CREATE SCHEMA '+namespace);
+ const pool=new pg.Pool({connectionString:process.env.TEST_DATABASE_URL,options:'-c search_path='+namespace});
  try{
  await pool.query(await readFile(new URL('../backend/schema.sql',import.meta.url),'utf8'));
  const a=input('draft-v1');const rate=randomUUID();
@@ -36,7 +39,7 @@ test('real PostgreSQL: atomic intake, immutable originals, concurrent retries, s
  await assert.rejects(accept(pool,schemas,input('draft-v1'),rate),e=>e.status===429);
  const deadPool={connect:async()=>{throw Error('offline');}};
  await assert.rejects(accept(deadPool,schemas,input('draft-v1'),rate),/offline/);
- }finally{await pool.end();}
+ }finally{await pool.end();await admin.query('DROP SCHEMA '+namespace+' CASCADE');await admin.end();}
 });
 test('Airtable field ID mapping tolerates renamed columns; missing columns fail before writing',async()=>{
  const env={AIRTABLE_BASE_ID:'appTest',AIRTABLE_TABLE_ID:'tblTest',AIRTABLE_REFERENCE_FIELD_ID:'fldRef',AIRTABLE_SNAPSHOT_FIELD_ID:'fldSnapshot',AIRTABLE_TOKEN:'test-only'};
