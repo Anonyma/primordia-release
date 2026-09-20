@@ -32,6 +32,36 @@ try {
  for(const route of ['/apply','/fund-experiments','/about','/grantees','/cohort-1','/thanks']){
   assert.equal((await page.goto(base+route)).status(),200,route);assert((await page.locator('body').innerText()).length>100,route);
  }
+ for(const width of [375,768,1440]) {
+  await page.setViewportSize({width,height:1000});
+  for(const route of ['/apply','/fund-experiments','/grantees']) {
+   await page.goto(base+route);
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),route+' overflow');
+  }
+ }
+ await page.goto(base+'/apply');
+ let posts=0;
+ await page.route('**/*', route=>{
+  if(route.request().method()==='POST'){posts++;return route.fulfill({status:200,body:'Synthetic test intercepted'});}
+  return route.continue();
+ });
+ await page.getByRole('button',{name:'Submit application'}).click();
+ assert.equal(posts,0);
+ assert.equal(await page.locator('[aria-invalid="true"]').count(),11);
+ assert(await page.locator('.error-summary').evaluate(e=>e===document.activeElement));
+ await page.locator('#name').fill('Synthetic Test');
+ await page.locator('#email').fill('invalid-email');
+ await page.getByRole('button',{name:'Submit application'}).click();
+ assert.equal(posts,0);
+ assert.match(await page.locator('#email-error').innerText(),/valid email/);
+ assert.equal(await page.locator('#name').inputValue(),'Synthetic Test');
+ for(const field of await page.locator('.field input[required], .field textarea[required]').all()) {
+  await field.fill((await field.getAttribute('type'))==='email'?'synthetic@example.invalid':'Synthetic test answer');
+ }
+ await page.getByRole('button',{name:'Submit application'}).click();
+ await page.waitForLoadState();
+ assert.equal(posts,1,'Valid form should submit once; POST intercepted locally');
+ console.log('Validation: missing fields, invalid email, retained answers, focused summary, optional blank and valid submission passed.');
  assert.equal(await page.locator('body').count(),1);
  assert.deepEqual(errors,[]);
  console.log('Routes and browser runtime passed. No production form was submitted.');
