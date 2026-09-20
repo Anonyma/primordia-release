@@ -1,0 +1,26 @@
+/* Approved variation C: mirror the artwork, preserve readable live text. */
+.apply-hero { padding: 44px 0 72px; border-bottom: 1px solid #dce2df; }
+.apply-hero > .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 64px; }
+.apply-hero .apply-title { font-size: clamp(44px, 4.5vw, 68px); font-weight: 700; line-height: 1.02; letter-spacing: -.04em; margin-bottom: 32px; }
+.apply-hero .lede { font-size: 22px; line-height: 1.45; margin-bottom: 32px; }
+.apply-status { font-size: 25px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+.apply-hero-button { border-radius: 14px; min-height: 62px; padding: 12px 38px; font-size: 25px; font-weight: 700; }
+.apply-hero .page-intro-art { width: 100%; max-width: none; max-height: none; }
+#application { scroll-margin-top: 28px; }
+.cohort-link { margin-bottom: 28px; }
+@media (max-width: 1100px) and (min-width: 900px) {
+ .apply-hero > .wrap { gap: 40px; }
+ .apply-hero .apply-title { font-size: 48px; }
+}
+@media (max-width: 899px) {
+ .apply-hero { padding: 28px 0 40px; }
+ .apply-hero > .wrap { grid-template-columns: 1fr; gap: 36px; }
+ .apply-hero .page-intro-art { max-width: 580px; justify-self: center; }
+ .apply-hero .page-intro-copy { max-width: 650px; }
+}
+@media (max-width: 599px) {
+ .apply-hero .apply-title { font-size: clamp(36px, 9vw, 52px); margin-bottom: 24px; }
+ .apply-hero .lede { font-size: 20px; margin-bottom: 28px; }
+ .apply-status { font-size: 23px; }
+ .apply-hero-button { min-height: 56px; font-size: 22px; }
+}
