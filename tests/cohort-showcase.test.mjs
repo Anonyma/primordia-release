@@ -57,11 +57,11 @@ test('does not keep the unfunded-experiments placeholder CTA', () => {
   assert.doesNotMatch(html, /View Funded Experiments|Coming soon/);
 });
 
-test('tightens the space between showcase CTAs and the FAQ section', () => {
+test('keeps deliberate spacing around the showcase CTAs', () => {
   assert.match(css, /cohort-showcase-followup/);
   assert.match(css, /cohort-showcase-followup\s*>\s*\.container/);
   assert.match(css, /cohort-showcase-followup \+ \.section > \.container/);
-  assert.match(css, /padding-bottom:\s*1rem/);
+  assert.match(css, /padding-bottom:\s*max\(40px,\s*2\.5rem\)/);
   assert.match(css, /padding-top:\s*1\.25rem/);
 });
 

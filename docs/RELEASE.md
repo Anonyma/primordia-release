@@ -2,7 +2,7 @@
 
 Source: `/Users/z/Desktop/PersonalProjects/ClaudeProjects/primordia-site-dev`, including its working changes. The original checkout is untouched; a complete source checkpoint and binary Git diff are in the task workspace. The release branch is based on `ThatMrE/primordia` main, not the unrelated development repository history.
 
-The new homepage preserves the approved local design and seven grantee projects, adds the approved high-resolution mobile artwork and official social links, and includes the missing project JSON. Existing application, donation, about, program, message, thanks and 404 pages remain intact. The application form remains `grant-application`; no synthetic submission is sent to it.
+The new homepage preserves the approved local design and seven grantee projects, adds the approved high-resolution mobile artwork and official social links, and includes the missing project JSON. The application, donation and confirmation pages share the new homepage typography, artwork and illustrated footer. Their existing content and form/payment destinations are preserved. About, program, message and 404 pages remain intact. The application form remains `grant-application`; no synthetic submission is sent to it.
 
 ## Production and access
 
@@ -38,3 +38,7 @@ Do not run `build_site.py` to regenerate the new homepage: it generates the prev
 An hourly GitHub Actions route monitor is included and activates only after merge into the production repository's default branch. It checks HTTP success and nonempty page size; it is not a submission test. GitHub's scheduler can be delayed and public-repository scheduled workflows can be disabled after inactivity. Use a dedicated uptime service if a strict alert SLA is needed. No alert email recipient or third-party notification was configured.
 
 Hosted preview validation on 20 September passed the same ten-width Chromium smoke suite and all six routes at https://deploy-preview-4--primordia-grants.netlify.app. Impeccable's detector flagged existing tracking and generic container heuristics; the approved type/desktop design is intentionally preserved. The GitHub workflow may need owner approval for this first fork contribution before `Site checks` appears; Netlify's preview already built successfully.
+
+## Review refinements
+
+The Apply, Fund Experiments and confirmation pages now use shared `styles/site-pages.css` and `styles/site-footer.css`. The existing Netlify application field names, required flags, submission attributes and donation destinations were compared against the prior revision and preserved. Social icons sit inside the footer illustration alongside linked ValleyDAO and Biopunk Labs names. Showcase calls to action have at least 48px above and 40px below, including intermediate widths where the legacy Webflow root font size shrinks.

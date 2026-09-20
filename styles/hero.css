@@ -213,9 +213,6 @@ section.section.hero-section .container.full-height { display: none !important; 
 /* Approved mobile art direction; desktop declarations above stay unchanged. */
 .hero-blob picture { display: block; width: 100%; height: 100%; }
 a:focus-visible { outline: 3px solid #20545e; outline-offset: 4px; }
-.social-links { display: flex; justify-content: center; gap: 12px; padding: 16px 24px 32px; }
-.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #163c43; border-radius: 50%; }
-.social-links a:hover { background: #e2eeee; }
 @media (max-width: 899px) {
   section.section.hero-section { height: auto !important; padding: 0 12px 24px !important; }
   section.section.hero-section .hero-scale-clip { overflow: visible !important; }
