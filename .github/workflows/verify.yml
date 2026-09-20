@@ -9,6 +9,20 @@ jobs:
   site:
     name: Site checks
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: synthetic-ci-only
+          POSTGRES_DB: intake_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:synthetic-ci-only@127.0.0.1:5432/intake_test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,6 +35,7 @@ jobs:
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run smoke
+      - run: node scripts/smoke-hosted-intake.mjs
       - name: Local isolated intake browser test
         run: |
           node prototype/server.mjs &
