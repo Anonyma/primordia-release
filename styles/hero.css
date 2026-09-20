@@ -258,3 +258,9 @@ a:focus-visible { outline: 3px solid #20545e; outline-offset: 4px; }
   section.section.hero-section .hero-wordmark { top: 14% !important; }
   #About > .container { padding-top: 28px !important; }
 }
+
+@media (max-width: 899px) {
+ section.section.hero-section .hero-stage { top: -41px !important; margin-bottom: -77px !important; }
+ section.section.hero-section .hero-cta--apply .hero-cta__caption { display: none !important; }
+ section.section.hero-section .hero-cta__btn { font-size: 17px !important; min-height: 44px !important; }
+}

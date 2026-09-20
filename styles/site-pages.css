@@ -110,3 +110,14 @@ input::placeholder, textarea::placeholder { color: #576962; opacity: 1; }
 .page-intro h1 { font-family: 'Jost', sans-serif; font-weight: 700; font-size: clamp(52px, 5.5vw, 76px); line-height: .98; letter-spacing: -.035em; text-wrap: balance; margin-bottom: 32px; }
 main h2 { font-weight: 700; font-size: clamp(30px, 2.8vw, 38px); line-height: 1.16; text-wrap: balance; }
 @media (max-width: 599px) { .page-intro h1 { margin-bottom: 24px; } }
+
+.fund-page .addr { justify-content: flex-start; }
+.funding-uses { align-content: start; gap: 20px; }
+.funding-uses > h3 { margin-bottom: 4px; }
+@media (max-width: 899px) {
+ .fund-page .page-intro-art { display: none; }
+ .fund-page .page-intro { border-bottom: 1px solid #cad9d1; }
+ .fund-page .faq__item { padding-block: 15px; }
+ .fund-page .faq__q { padding-block: 4px; }
+ .fund-page .faq__a { padding-top: 15px; }
+}
