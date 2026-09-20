@@ -1,0 +1,273 @@
+.cohort-showcase {
+  --cohort-ink: #17171a;
+  --cohort-blue: #c3d1e9;
+  --cohort-wash: #edf2fb;
+  color: var(--cohort-ink);
+  margin-bottom: var(--preview-section-space, 4rem) !important;
+}
+
+.cohort-showcase [hidden] { display: none !important; }
+
+.cohort-card-button {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--cohort-ink);
+  cursor: pointer;
+  display: inline-flex;
+  font: 700 0.95rem/1.25 Karla, sans-serif;
+  padding: 0.2rem 0;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.cohort-card-button:hover,
+.cohort-card-button:focus-visible {
+  border-bottom-color: transparent;
+  color: #526b9b;
+}
+
+.cohort-card-button:focus-visible {
+  outline: 3px solid #76a8ff;
+  outline-offset: 3px;
+}
+
+.cohort-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--preview-card-gap, 2rem);
+}
+
+.cohort-grid .w-dyn-item { min-width: 0; }
+
+.cohort-impact-card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cohort-visual {
+  align-items: flex-end;
+  background: var(--cohort-wash);
+  display: flex;
+  min-height: 13rem;
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+}
+
+.cohort-visual::before,
+.cohort-visual::after {
+  display: none;
+}
+
+.cohort-visual-label {
+  background: #fff;
+  border: 2px solid var(--cohort-ink);
+  border-radius: 999px;
+  font: 700 0.8rem/1 Karla, sans-serif;
+  letter-spacing: 0.07em;
+  padding: 0.55rem 0.7rem;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.cohort-project-image {
+  display: block;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  width: 100%;
+}
+
+.cohort-project-image--0 { object-position: 50% 48%; }
+.cohort-project-image--1 { object-position: 50% 40%; }
+.cohort-project-image--2 { object-position: 50% 50%; }
+.cohort-project-image--3 { object-position: 50% 48%; }
+.cohort-project-image--4 { object-position: 50% 45%; }
+.cohort-project-image--5 { object-position: 50% 43%; }
+.cohort-project-image--6 { object-position: 50% 46%; }
+
+.cohort-impact-card:nth-child(3n + 2) .cohort-visual { background: #f2f0e7; }
+.cohort-impact-card:nth-child(3n) .cohort-visual { background: #eef5f1; }
+
+.cohort-card-meta {
+  color: #303039;
+  font: 600 clamp(1rem, 1.2vw, 1.15rem)/1.32 Karla, sans-serif;
+  margin: 0 0 1rem;
+}
+
+.cohort-card-title {
+  font-size: var(--preview-card-title-size, clamp(1.55rem, 2.25vw, 2rem));
+  line-height: 1.16;
+  margin: 0 0 0.8rem;
+  text-wrap: balance;
+}
+
+.cohort-card-summary {
+  margin: 0 0 0.8rem;
+}
+
+.cohort-card-summary p { margin: 0; }
+
+.cohort-card-button { width: fit-content; }
+
+.design-controls {
+  background: #17171a;
+  bottom: 1rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+  color: #fff;
+  display: grid;
+  gap: 0.75rem;
+  max-width: 17rem;
+  padding: 1rem;
+  position: fixed;
+  right: 1rem;
+  width: calc(100% - 2rem);
+  z-index: 1000;
+}
+
+.design-controls[hidden] { display: none; }
+.design-controls__heading { font: 700 1rem/1.2 Karla, sans-serif; }
+.design-controls label { display: grid; font: 600 0.8rem/1.25 Karla, sans-serif; gap: 0.3rem; }
+.design-controls output { color: #c3d1e9; }
+.design-controls button { background: #fff; border: 0; color: #17171a; cursor: pointer; font: 700 0.8rem/1 Karla, sans-serif; padding: 0.65rem; }
+.design-controls p { font: 0.72rem/1.35 Karla, sans-serif; margin: 0; white-space: pre-wrap; }
+
+@media (max-width: 767px) {
+  .cohort-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cohort-card-button { transition: none; }
+}
+
+/* Local/static preview: Webflow IX leaves these at opacity:0 without the runtime */
+.cohort-showcase-followup .heading-wrapper,
+.cohort-showcase-followup .button-row,
+.cohort-showcase-followup [style*="opacity"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Tighter gap between Apply and Become a Supporter */
+.cohort-showcase-followup .button-row.wide {
+  grid-column-gap: 0.75rem !important;
+  gap: 0.75rem !important;
+}
+.cohort-showcase-followup .cohort-showcase.mg-bottom-64px {
+  margin-bottom: 1.75rem !important;
+}
+
+
+/* How it Works: absolute .card-image hangs below cards.
+   Do NOT crush grid-row-gap (that caused icon collisions on ≤767).
+   Restore Webflow gaps under media queries; leave desktop 5-col alone. */
+#How-it-works.section {
+  padding-bottom: 1.5rem !important;
+}
+#How-it-works .work-grid {
+  /* keep desktop row-gap from Webflow (1.375rem); only restore margin for icon hang */
+  margin-bottom: 7rem !important;
+}
+@media screen and (max-width: 767px) {
+  #How-it-works .work-grid {
+    grid-row-gap: 8rem !important;
+    margin-bottom: 5rem !important;
+  }
+}
+@media screen and (max-width: 479px) {
+  #How-it-works .work-grid {
+    grid-row-gap: 5rem !important;
+    margin-bottom: 4.5rem !important;
+  }
+  #How-it-works .work-card {
+    padding-bottom: 6rem !important;
+  }
+  #How-it-works .card-image {
+    bottom: -3rem !important;
+  }
+}
+
+/* Tighten Apply / Become a Supporter → FAQ white space
+   (each .container has 4.5rem vertical padding by default) */
+.cohort-showcase-followup {
+  padding-bottom: 0 !important;
+}
+.cohort-showcase-followup > .container {
+  padding-bottom: 1rem !important;
+}
+.cohort-showcase-followup + .section > .container {
+  padding-top: 1.25rem !important;
+}
+
+#How-it-works + .section,
+.section._3rd-section {
+  padding-top: 1.5rem !important;
+}
+
+
+/* About ≤767: hide illustration — title + copy only. Desktop ≥992 untouched. */
+.about-art-mobile {
+  display: none !important;
+}
+@media screen and (max-width: 991px) {
+  #About.section._2nd-section,
+  #About .relative-block {
+    overflow: hidden !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  #About.section._2nd-section {
+    background-image: none !important;
+    overflow: hidden !important;
+  }
+  #About .relative-block {
+    overflow: hidden !important;
+  }
+  #About .absolute-content-wrapper {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  #About .second-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-column-gap: 0 !important;
+    grid-row-gap: 0.75rem !important;
+    gap: 0.75rem !important;
+  }
+  #About .content-div-v3 {
+    padding-top: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  #About .h2-78px {
+    background: #fff !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    margin: 0 0 0.25rem !important;
+  }
+  #About .about-art-mobile,
+  #About .content-div-v3::after,
+  #About .home-image-second {
+    display: none !important;
+  }
+  #About .content-div {
+    position: relative !important;
+    z-index: 2 !important;
+    padding-top: 0 !important;
+    margin: 0 0 0.5rem !important;
+    background: #fff !important;
+    width: 100% !important;
+  }
+}
+
+
+[style*="opacity: 0"], [style*="opacity:0"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
