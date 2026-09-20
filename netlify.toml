@@ -70,3 +70,6 @@
   for = "/assets/primordia.css"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[context.deploy-preview.environment]
+  DRAFT_PROTOTYPE = "1"

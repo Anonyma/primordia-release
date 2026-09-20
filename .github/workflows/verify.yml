@@ -21,3 +21,12 @@ jobs:
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run smoke
+      - name: Local isolated intake browser test
+        run: |
+          node prototype/server.mjs &
+          for i in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8913/local-draft/ >/dev/null && break || sleep 1; done
+          node scripts/smoke-prototype.mjs
+      - name: Ensure production omits the draft
+        run: |
+          CONTEXT=production DRAFT_PROTOTYPE=1 npm run build
+          test ! -e static-dist/draft-application

@@ -1,0 +1,224 @@
+{
+  "draft-v1": {
+    "version": "draft-v1",
+    "round": "draft-round",
+    "consentVersion": "not-approved-no-real-applicants",
+    "questions": [
+      {
+        "key": "full_name",
+        "label": "Full name",
+        "type": "text",
+        "group": "About you",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "type": "email",
+        "group": "About you",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "project_title",
+        "label": "Project title",
+        "type": "text",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "project_summary",
+        "label": "Brief project summary",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "research_question",
+        "label": "What scientific question or hypothesis will you test?",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "experiment_plan",
+        "label": "What experiment will you run, and how will you interpret the results?",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "expected_impact",
+        "label": "What would a successful outcome enable?",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "funding_amount",
+        "label": "Requested funding",
+        "type": "number",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "funding_currency",
+        "label": "Currency",
+        "type": "text",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "budget_breakdown",
+        "label": "Brief budget breakdown",
+        "type": "textarea",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "timeline",
+        "label": "Expected timeline",
+        "type": "text",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "experience_and_facilities",
+        "label": "Relevant experience and access to facilities",
+        "type": "textarea",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "supporting_links",
+        "label": "Optional supporting links",
+        "type": "textarea",
+        "group": "Resources",
+        "required": false,
+        "maxLength": 12000
+      }
+    ]
+  },
+  "draft-v2": {
+    "version": "draft-v2",
+    "round": "draft-round",
+    "consentVersion": "not-approved-no-real-applicants",
+    "questions": [
+      {
+        "key": "full_name",
+        "label": "Your full name",
+        "type": "text",
+        "group": "About you",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "type": "email",
+        "group": "About you",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "project_title",
+        "label": "Project title",
+        "type": "text",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "project_summary",
+        "label": "Brief project summary",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "research_question",
+        "label": "What scientific question or hypothesis will you test?",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "experiment_plan",
+        "label": "What experiment will you run, and how will you interpret the results?",
+        "type": "textarea",
+        "group": "Your experiment",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "funding_amount",
+        "label": "Requested funding",
+        "type": "number",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "funding_currency",
+        "label": "Currency",
+        "type": "text",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "budget_breakdown",
+        "label": "Brief budget breakdown",
+        "type": "textarea",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "timeline",
+        "label": "Expected timeline",
+        "type": "text",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 300
+      },
+      {
+        "key": "experience_and_facilities",
+        "label": "Relevant experience and access to facilities",
+        "type": "textarea",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 12000
+      },
+      {
+        "key": "supporting_links",
+        "label": "Optional supporting links",
+        "type": "textarea",
+        "group": "Resources",
+        "required": false,
+        "maxLength": 12000
+      },
+      {
+        "key": "next_experiment",
+        "label": "Which experiment would you run next?",
+        "type": "textarea",
+        "group": "Resources",
+        "required": true,
+        "maxLength": 12000
+      }
+    ]
+  }
+}

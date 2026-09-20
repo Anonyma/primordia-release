@@ -12,3 +12,10 @@ for (const name of ['assets', 'styles', 'scripts', 'images', 'content']) {
   await cp(path.join(root, name), path.join(output, name), { recursive: true });
 }
 console.log('Built homepage and preserved production routes into static-dist/');
+
+// Draft files are opt-in and can never enter a production-context build.
+if (process.env.DRAFT_PROTOTYPE === '1' && process.env.CONTEXT !== 'production') {
+  await mkdir(path.join(output, 'draft-application'), {recursive:true});
+  for (const name of ['index.html','form.css','form.mjs','model.mjs','schemas.json','browser-store.mjs'])
+    await cp(path.join(root,'prototype',name),path.join(output,'draft-application',name));
+}
