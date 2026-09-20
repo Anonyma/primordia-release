@@ -95,20 +95,8 @@ textarea { resize: vertical; min-height: 160px; }
 input { min-height: 46px; padding: 8px 14px; }
 input::placeholder, textarea::placeholder { color: #576962; opacity: 1; }
 .page-intro-art { max-height: 340px; object-fit: contain; object-position: center; }
-.handbook-intro > .wrap { display: block; }
-.handbook-intro .lede { max-width: 65ch; }
-.handbook .grid-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
-.handbook .grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
-.handbook .mono { color: #42635c; font-size: 17px; margin: 12px 0; }
-.handbook .panel .disp { font-family: 'Jost',sans-serif; font-size: 32px; color: #42635c; }
-.handbook .checklist { margin-top: 32px; }
-.handbook .checklist li { margin: 12px 0; }
 @media(max-width: 899px) {
  .page-intro-art { width: min(100%,420px); max-height: 190px; }
- .handbook .grid-3,.handbook .grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-@media(max-width: 599px) {
- .handbook .grid-3,.handbook .grid-4 { grid-template-columns: 1fr; }
 }
 .error-summary { border: 1px solid #943e32; padding: 24px; margin: 0 0 32px; border-radius: 12px; }
 .error-summary p { margin-bottom: 12px; }
