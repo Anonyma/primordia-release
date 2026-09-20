@@ -168,7 +168,10 @@
    Do NOT crush grid-row-gap (that caused icon collisions on ≤767).
    Restore Webflow gaps under media queries; leave desktop 5-col alone. */
 #How-it-works.section {
-  padding-bottom: 1.5rem !important;
+  padding-bottom: 0 !important;
+}
+#How-it-works > .container {
+  padding-bottom: 0 !important;
 }
 #How-it-works .work-grid {
   /* keep desktop row-gap from Webflow (1.375rem); only restore margin for icon hang */
@@ -206,7 +209,7 @@
 
 #How-it-works + .section,
 .section._3rd-section {
-  padding-top: 1.5rem !important;
+  padding-top: 0 !important;
 }
 
 
