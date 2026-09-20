@@ -250,3 +250,11 @@ a:focus-visible { outline: 3px solid #20545e; outline-offset: 4px; }
 }
 
 @media (max-width: 360px) { section.section.hero-section .hero-stage { height: 560px !important; } }
+
+/* Mobile artwork includes transparent margins: compensate in layout. */
+@media (max-width: 899px) {
+  section.section.hero-section { padding-bottom: 0 !important; }
+  section.section.hero-section .hero-stage { top: -28px !important; margin-bottom: -64px !important; }
+  section.section.hero-section .hero-wordmark { top: 14% !important; }
+  #About > .container { padding-top: 28px !important; }
+}
