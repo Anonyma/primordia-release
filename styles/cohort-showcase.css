@@ -160,7 +160,7 @@
   gap: 0.75rem !important;
 }
 .cohort-showcase-followup .cohort-showcase.mg-bottom-64px {
-  margin-bottom: 1.75rem !important;
+  margin-bottom: max(48px, 3.25rem) !important;
 }
 
 
@@ -193,13 +193,12 @@
   }
 }
 
-/* Tighten Apply / Become a Supporter → FAQ white space
-   (each .container has 4.5rem vertical padding by default) */
+/* Give the showcase calls to action clear space above and below. */
 .cohort-showcase-followup {
   padding-bottom: 0 !important;
 }
 .cohort-showcase-followup > .container {
-  padding-bottom: 1rem !important;
+  padding-bottom: max(40px, 2.5rem) !important;
 }
 .cohort-showcase-followup + .section > .container {
   padding-top: 1.25rem !important;
