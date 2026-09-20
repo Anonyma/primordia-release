@@ -20,3 +20,7 @@
   .section.footer .footer-column:empty { display: none; }
   .section.footer .footer-column._2nd { margin-left: auto; max-width: 360px; }
 }
+
+/* Put social links on a centered row across the whole illustrated footer. */
+.section.footer .footer-flex { position: relative; padding-bottom: 60px; }
+.section.footer .social-links { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); justify-content: center; }

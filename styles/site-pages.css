@@ -84,3 +84,36 @@ textarea { resize: vertical; min-height: 160px; }
  .addr { flex-direction: column; align-items: flex-start; gap: 16px; }
  .btn--lg { width: 100%; }
 }
+
+/* Refinements preserve the homepage type and pale blue-green artwork palette. */
+.apply-title { line-height: .98; }
+.plate { background: #e3eff0; color: #234e54; border-radius: 4px; padding: 8px 12px; }
+.cohort-link { margin: 16px 0 0; }
+.field label { font-size: 22px; margin-bottom: 5.2px; }
+.hint { font-size: 18px; line-height: 1.45; }
+.opt { font-size: 17px; font-weight: 400; font-style: italic; color: #576962; }
+input { min-height: 46px; padding: 8px 14px; }
+input::placeholder, textarea::placeholder { color: #576962; opacity: 1; }
+.page-intro-art { max-height: 340px; object-fit: contain; object-position: center; }
+.handbook-intro > .wrap { display: block; }
+.handbook-intro .lede { max-width: 65ch; }
+.handbook .grid-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.handbook .grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.handbook .mono { color: #42635c; font-size: 17px; margin: 12px 0; }
+.handbook .panel .disp { font-family: 'Jost',sans-serif; font-size: 32px; color: #42635c; }
+.handbook .checklist { margin-top: 32px; }
+.handbook .checklist li { margin: 12px 0; }
+@media(max-width: 899px) {
+ .page-intro-art { width: min(100%,420px); max-height: 190px; }
+ .handbook .grid-3,.handbook .grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width: 599px) {
+ .handbook .grid-3,.handbook .grid-4 { grid-template-columns: 1fr; }
+}
+.error-summary { border: 1px solid #943e32; padding: 24px; margin: 0 0 32px; border-radius: 12px; }
+.error-summary p { margin-bottom: 12px; }
+.error-summary ul { margin-bottom: 0; padding-left: 22px; }
+.error-summary li { margin: 8px 0; }
+.field-error { color: #943e32; font-size: 17px; margin: 8px 0 0; }
+[aria-invalid="true"] { border-color: #943e32; border-width: 2px; }
+[hidden] { display: none !important; }
