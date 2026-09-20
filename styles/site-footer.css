@@ -12,7 +12,7 @@
 .footer-text a:hover { text-decoration-thickness: 2px; }
 .social-links { display: flex; justify-content: flex-end; gap: 12px; padding: 0; }
 .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #000; border-radius: 50%; }
-.social-links a:hover { background: #e2eeee; }
+.social-links a:hover { background: #fff; }
 .section.footer a:focus-visible { outline: 3px solid #20545e; outline-offset: 4px; }
 @media (max-width: 767px) {
   .section.footer .footer-wrapper { width: 100%; padding: 32px 20px; }
@@ -21,6 +21,11 @@
   .section.footer .footer-column._2nd { margin-left: auto; max-width: 360px; }
 }
 
-/* Put social links on a centered row across the whole illustrated footer. */
-.section.footer .footer-flex { position: relative; padding-bottom: 60px; }
-.section.footer .social-links { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); justify-content: center; }
+/* Center the icons on the page, alongside the right-hand credit. */
+.section.footer .footer-flex { position: relative; align-items: center; }
+.section.footer .footer-column._2nd { max-width: min(480px, calc(50% - 76px)); }
+.section.footer .social-links { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); justify-content: center; }
+@media (max-width: 899px) {
+ .section.footer .footer-column._2nd { max-width: calc(100% - 128px); margin-left: auto; }
+ .section.footer .social-links { left: 0; transform: translateY(-50%); }
+}
