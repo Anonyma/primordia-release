@@ -110,7 +110,10 @@ const startShowcase = () => {
     </article>`;
   };
 
-  allGrid.innerHTML = projects.map((project, index) => `<div role="listitem" class="w-dyn-item">${card(project, index)}</div>`).join('');
+  const displayedProjects = root.hasAttribute('data-compact-order') && projects.length === 7
+    ? [projects[0], projects[2], projects[5], projects[6], projects[1], projects[3], projects[4]]
+    : projects;
+  allGrid.innerHTML = displayedProjects.map((project, index) => `<div role="listitem" class="w-dyn-item">${card(project, index)}</div>`).join('');
 };
 
 if (root) {
