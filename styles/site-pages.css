@@ -121,3 +121,26 @@ main h2 { font-weight: 700; font-size: clamp(30px, 2.8vw, 38px); line-height: 1.
  .fund-page .faq__q { padding-block: 4px; }
  .fund-page .faq__a { padding-top: 15px; }
 }
+
+/* Compact spacing for the secondary-page reading flow. */
+@media (min-width: 900px) {
+ .fund-page .faq__item { padding-block: 12px; }
+}
+@media (max-width: 599px) {
+ .fund-page .page-intro h1 { margin-bottom: 12px; }
+ .fund-page .snum { margin-bottom: 12px; }
+ .fund-page .snum:last-child { margin-bottom: 0; }
+ .fund-page .funding-uses { gap: 12px; }
+ .fund-page .funding-uses .panel { padding-bottom: 12px; }
+ .fund-page h2.h2 { margin-bottom: 12px; }
+}
+
+/* Mobile header: keep the application action beside the wordmark. */
+@media (max-width: 599px) {
+ .fund-page .site-header { position: relative; padding: 16px 20px 0; gap: 8px; }
+ .fund-page .site-wordmark { min-height: 44px; display: flex; align-items: center; font-size: clamp(26px, 7.4vw, 32px); }
+ .fund-page .site-header nav { min-height: 44px; }
+ .fund-page .nav-apply { position: absolute; top: 16px; right: 20px; }
+ .fund-page .page-intro { padding-top: 16px; }
+ .fund-page .funding-uses { margin-top: 16px; }
+}

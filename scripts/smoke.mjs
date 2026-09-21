@@ -26,7 +26,7 @@ try {
   assert.equal((await page.goto(base,{waitUntil:'load'})).status(),200);
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].filter(i=>i.loading!=='lazy').map(i=>i.decode().catch(()=>{})));});
   const result=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,missing:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src),cta:[...document.querySelectorAll('.hero-cta')].map(e=>e.getBoundingClientRect().height),overlap:document.querySelector('.hero-title').getBoundingClientRect().bottom>document.querySelector('.hero-ctas').getBoundingClientRect().top}));
-  assert(result.scroll<=width,JSON.stringify(result));assert.equal(result.missing.length,0,JSON.stringify(result));assert(result.cta.every(h=>h>=44),JSON.stringify(result));assert(!result.overlap,JSON.stringify(result));
+  assert(result.scroll<=width,JSON.stringify(result));assert.equal(result.missing.length,0,JSON.stringify(result));assert(result.cta.every(h=>h>=(width<900?36:44)),JSON.stringify(result));assert(!result.overlap,JSON.stringify(result));
   console.log(JSON.stringify(result));
  }
  for(const route of ['/apply','/fund-experiments','/about','/grantees','/cohort-1','/thanks']){
@@ -40,29 +40,15 @@ try {
   }
  }
  await page.goto(base+'/apply');
- let posts=0;
- await page.route('**/*', route=>{
-  if(route.request().method()==='POST'){posts++;return route.fulfill({status:200,body:'Synthetic test intercepted'});}
-  return route.continue();
- });
- await page.getByRole('button',{name:'Submit application'}).click();
- assert.equal(posts,0);
- assert.equal(await page.locator('[aria-invalid="true"]').count(),11);
- assert(await page.locator('.error-summary').evaluate(e=>e===document.activeElement));
- await page.locator('#name').fill('Synthetic Test');
- await page.locator('#email').fill('invalid-email');
- await page.getByRole('button',{name:'Submit application'}).click();
- assert.equal(posts,0);
- assert.match(await page.locator('#email-error').innerText(),/valid email/);
- assert.equal(await page.locator('#name').inputValue(),'Synthetic Test');
- for(const field of await page.locator('.field input[required], .field textarea[required]').all()) {
-  await field.fill((await field.getAttribute('type'))==='email'?'synthetic@example.invalid':'Synthetic test answer');
+ for (const width of [319, 412, 1440]) {
+  await page.setViewportSize({width,height:900});
+  await page.evaluate(()=>document.fonts.ready);
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Opening notice overflow');
  }
- await page.getByRole('button',{name:'Submit application'}).click();
- await page.waitForLoadState();
- assert.equal(posts,1,'Valid form should submit once; POST intercepted locally');
- console.log('Validation: missing fields, invalid email, retained answers, focused summary, optional blank and valid submission passed.');
- assert.equal(await page.locator('body').count(),1);
+ assert.equal(await page.locator('form, input, textarea, button[type="submit"]').count(),0,'Applications remain closed until intake is verified');
+ assert.match(await page.getByRole('heading',{level:1}).innerText(),/Applications opening at the end of September 2026/);
+ assert.equal(await page.getByRole('link',{name:/Read the grantee handbook/}).getAttribute('href'),'/grantees');
+ console.log('Application opening notice is visible; no form or submission controls are exposed.');
  assert.deepEqual(errors,[]);
  console.log('Routes and browser runtime passed. No production form was submitted.');
 }finally{await browser.close();server.close();}

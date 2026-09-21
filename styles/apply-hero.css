@@ -35,7 +35,8 @@
  .apply-header .menu-toggle:not([hidden]) { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 12px; background: transparent; color: inherit; border: 1px solid currentColor; border-radius: 12px; cursor: pointer; }
  .apply-header nav { width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; }
  .apply-header nav[data-collapsed="true"] { display: none; }
- .apply-header nav a { min-height: 48px; }
+ .apply-header nav a { min-height: 44px; }
+ .apply-header nav a + a { border-top: 1px solid #cad9d1; }
  .apply-hero { padding-top: 12px; }
  .apply-hero .page-intro-art { display: none; }
  .apply-hero-links { display: flex; align-items: center; gap: 24px; }
@@ -47,4 +48,15 @@
  .apply-hero-links { gap: 18px; }
  .apply-hero-button { padding-inline: 24px; }
  .hero-projects-link { font-size: 16px; }
+}
+
+@media (min-width: 900px) {
+ .apply-hero-button { font-weight: 500; }
+}
+@media (max-width: 599px) {
+ .funding-criteria .panel h3 { margin-bottom: 6px; }
+}
+
+@media (max-width: 599px) {
+ .apply-header nav { font-size: 18px; }
 }

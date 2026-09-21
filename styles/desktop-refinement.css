@@ -293,3 +293,15 @@ body > .section:not(.hero-section) h3 { font-family: Karla, sans-serif; }
   #primordium .hand-crafted-image { display: none; }
   #primordium .content-div-v2 { background: white; }
 }
+
+/* Mobile follow-up: balance the hero and repeat the definition's inset frame. */
+@media (max-width: 599px) {
+ section.section.hero-section .hero-copy { top: calc(43.4% + 20px); }
+ section.section.hero-section .hero-ctas { margin-top: 16px !important; gap: 10px !important; }
+ section.section.hero-section .hero-stage { margin-bottom: -65px !important; }
+ #About .relative-block { padding: 12px; border-radius: 28px; background: linear-gradient(120deg, #e3e9fa, #dce8f0); }
+ #About .second-grid { padding: 24px 20px; border-radius: 20px; background: white; }
+ #About .content-div-v3, #About .content-div { padding: 0; }
+ #About .h2-78px { margin-bottom: 16px !important; }
+ #About .text-31px { margin-bottom: 0; }
+}
