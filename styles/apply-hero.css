@@ -60,3 +60,11 @@
 @media (max-width: 599px) {
  .apply-header nav { font-size: 18px; }
 }
+
+/* Application opening updates, using the established social icons. */
+.application-follow-copy { font-size: 20px; line-height: 1.45; margin: 0 0 12px; }
+.application-social-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 28px; }
+.application-social-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 18px; text-underline-offset: 4px; }
+.application-social-links svg { flex: none; }
+.application-social-links a:hover { text-decoration-thickness: 2px; }
+.application-social-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
