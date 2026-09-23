@@ -1,0 +1,307 @@
+/* Responsive suggestion for PR #4. Preserve the hero and biological visual language.
+   Use the Apply page's 18px body / 22px lead / 38px section-heading scale. */
+@media (min-width: 992px) {
+  body > .section:not(.hero-section):not(.footer) > .container {
+    max-width: 1320px;
+    padding: 56px 40px;
+  }
+  body > .section:not(.hero-section) .h2-78px,
+  body > .section:not(.hero-section) .h2-60px {
+    font-size: 40px;
+    line-height: 1.16;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+    margin-bottom: 20px;
+  }
+  #About > .container, .section._3rd-section > .container { max-width: 1320px !important; }
+  #About .h2-78px { max-width: 12ch; }
+  #About .content-div { width: 86%; max-width: 570px; }
+  #About .text-31px { max-width: none; }
+  #About .text-31px,
+  .section._3rd-section .text-30px-v2 {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  #About .home-image-second { min-height: 0; }
+  .section._3rd-section .hand-crafted-image { min-height: 0; }
+  #How-it-works .text-32px,
+  #community-labs .text-32px {
+    font-size: 22px;
+    line-height: 1.45;
+    max-width: 65ch;
+    margin-bottom: 0;
+  }
+  #How-it-works .heading-wrapper,
+  #community-labs .heading-wrapper { margin-bottom: 36px; }
+  #community-labs .h2-60px { max-width: 36ch; }
+  #How-it-works .work-grid { gap: 20px; margin-bottom: 80px !important; }
+  #How-it-works .work-card { padding: 28px 20px 48px; border-radius: 28px; }
+  #How-it-works .number { font-size: 28px; line-height: 1.2; margin-bottom: 16px; }
+  #How-it-works .h3-22px { font-size: 18px; line-height: 1.3; margin-bottom: 12px; }
+  #How-it-works .text-18px { font-size: 17px; line-height: 1.5; }
+  #How-it-works .card-image { height: 88px; bottom: -64px; }
+  #community-labs .cohort-grid { gap: 28px 24px; }
+  #community-labs .cohort-impact-card { border-radius: 24px; }
+  #community-labs .cohort-visual { min-height: 0; height: 148px; padding: 12px; flex-shrink: 0; }
+  #community-labs .cohort-visual-label { font-size: 14px; line-height: 1.15; letter-spacing: .025em; padding: 6px 8px; border-width: 1px; }
+  #community-labs .content-wrap { padding: 22px 20px 24px; }
+  #community-labs .cohort-card-title { font-size: 18px; line-height: 1.15; text-wrap: pretty; margin-bottom: 12px; }
+  #community-labs .cohort-card-meta { font-size: 14px; line-height: 1.45; margin-bottom: 12px; }
+  #community-labs .cohort-card-summary,
+  #community-labs .cohort-card-summary p { font-size: 16px; line-height: 1.4; }
+  #community-labs .cohort-card-summary { margin-bottom: 0; }
+  #community-labs .cohort-card-button { font-size: 16px; line-height: 1.5; margin-top: 16px; min-height: 32px; }
+  #community-labs .cohort-showcase { margin-bottom: 36px !important; }
+  #community-labs .button-row { gap: 16px !important; }
+  #community-labs .button-element { width: auto; }
+  #community-labs .primary-button { min-width: 176px; min-height: 48px; padding: 12px 28px; font-size: 18px; line-height: 1.2; border-width: 2px; }
+  body > .section .faq-card { padding: 32px; border-radius: 28px; }
+  .faq-grid { grid-template-columns: 140px minmax(0, 1fr); gap: 32px; }
+  .faq-grid > :nth-child(2) { grid-column: 2; }
+  .faq-grid > div:first-child h2 { font-size: 38px; line-height: 1.16; }
+  .faq-top { padding: 18px 24px; gap: 20px; }
+  .faq-heading { font-size: 20px; line-height: 1.3; }
+  .faq-padding { padding: 4px 24px 20px; }
+  .faq-padding p { font-size: 18px; line-height: 1.5; max-width: 70ch; }
+  .section.footer .footer-text { font-size: 18px; line-height: 1.5; }
+}
+/* An eight-track grid gives four equal cards, then centers three without
+   changing source order or leaving a special case for future cohort sizes. */
+@media (min-width: 1200px) {
+  #community-labs .cohort-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  #community-labs .cohort-grid > .w-dyn-item { grid-column: span 2; }
+  #community-labs .cohort-grid > .w-dyn-item:nth-child(4n + 1):nth-last-child(3) { grid-column: 2 / span 2; }
+  #community-labs .cohort-grid > .w-dyn-item:nth-child(4n + 1):nth-last-child(2) { grid-column: 3 / span 2; }
+  #community-labs .cohort-grid > .w-dyn-item:nth-child(4n + 1):last-child { grid-column: 4 / span 2; }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #How-it-works .work-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 88px; }
+  #How-it-works .work-card { grid-column: span 2; }
+  #How-it-works .work-card:nth-child(4) { grid-column: 2 / span 2; }
+}
+
+/* Second review: shared hero typography, aligned text, content-led density. */
+body > .section:not(.hero-section) h2,
+body > .section:not(.hero-section) h3 { font-family: Karla, sans-serif; }
+#community-labs .heading-wrapper, #How-it-works .heading-wrapper {
+  display: block; text-align: left; margin-left: 0; margin-right: 0;
+}
+#community-labs .heading-wrapper > *, #How-it-works .heading-wrapper > * {
+  text-align: left; margin-left: 0; margin-right: 0;
+}
+#community-labs .cohort-card-title { font-weight: 600; letter-spacing: -.015em; text-wrap: pretty; }
+#community-labs .cohort-card-meta { font-weight: 500; font-size: 15px; line-height: 1.35; }
+#community-labs .cohort-visual-label {
+  font-size: 14px; font-weight: 400; line-height: 1.15; letter-spacing: 0;
+  text-transform: none; padding: 5px 9px; border: 0;
+}
+#community-labs .cohort-impact-card { border-width: 1px; }
+#How-it-works .number { position: static; transform: none; }
+.dictionary-entry { margin-top: 24px; }
+.dictionary-entry h2 { font: 500 40px/1.05 Jost, sans-serif !important; letter-spacing: -.02em; margin: 0 0 8px; }
+.dictionary-entry p { font: 400 18px/1.35 Karla, sans-serif; margin: 0; }
+.dictionary-entry i { margin-left: 12px; }
+.dictionary-entry .dictionary-plural { font-size: 15px; margin-top: 6px; }
+.dictionary-entry .dictionary-plural i { margin-left: 4px; }
+.faq-top { padding-top: 12px !important; padding-bottom: 12px !important; min-height: 52px; }
+@media (min-width: 992px) {
+  #About > .container { padding-top: 104px; }
+  #About .h2-78px { font-size: 52px; line-height: 1.08; font-weight: 500; max-width: 11ch; }
+  #About .content-div { padding-right: 0; }
+  #About .text-31px { font-size: 24px; line-height: 1.4; }
+  .section._3rd-section .content-div-v2 { align-self: end; height: auto; padding: 0 32px 12px 0; }
+  .section._3rd-section .text-30px-v2 { max-width: 44ch; font-size: 21px; line-height: 1.4; }
+  #How-it-works .work-card { padding-top: 20px; }
+  #How-it-works .number { font-size: 23px; margin-bottom: 12px; }
+  #community-labs .h2-60px { max-width: 31ch; }
+  #community-labs .content-wrap { padding: 18px; }
+}
+@media (min-width: 1200px) {
+  #community-labs .cohort-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; }
+  #community-labs .cohort-grid > .w-dyn-item { grid-column: span 3 !important; }
+  #community-labs .cohort-grid > .w-dyn-item:nth-child(n+5) { grid-column: span 4 !important; }
+}
+@media (max-width: 991px) {
+  body > .section:not(.hero-section):not(.footer) > .container { padding: 36px 24px; }
+  #About > .container { padding-top: 56px !important; }
+  #About .h2-78px, #How-it-works .h2-78px, #community-labs .h2-60px { font-size: 32px !important; line-height: 1.08 !important; margin-bottom: 16px !important; }
+  #About .text-31px, .section._3rd-section .text-30px-v2 { font-size: 19px; line-height: 1.4; }
+  #community-labs .text-32px { font-size: 18px; line-height: 1.4; }
+  #community-labs .heading-wrapper { margin-bottom: 28px; }
+  #How-it-works .work-grid { gap: 24px; margin-bottom: 0 !important; }
+  #How-it-works .work-card { padding: 24px 24px 76px; border-radius: 24px; }
+  #How-it-works .number { font-size: 22px; line-height: 1.1; margin-bottom: 12px; }
+  #How-it-works .h3-22px { font-size: 18px; line-height: 1.15; margin-bottom: 8px; }
+  #How-it-works .text-18px { font-size: 17px; line-height: 1.4; margin-bottom: 0; }
+  #How-it-works .card-image { height: 64px; width: auto; max-width: 100px; right: 16px; bottom: 8px; left: auto; transform: none; }
+  #community-labs .cohort-grid { gap: 24px; }
+  #community-labs .cohort-visual { min-height: 0; height: 148px; padding: 12px; }
+  #community-labs .content-wrap { padding: 20px; }
+  #community-labs .cohort-card-title { font-size: 20px; line-height: 1.15; margin-bottom: 12px; }
+  #community-labs .cohort-card-summary, #community-labs .cohort-card-summary p { font-size: 16px; line-height: 1.4; margin-bottom: 0; }
+  #community-labs .cohort-card-meta { margin-bottom: 12px; }
+  #community-labs .button-row { display: flex; gap: 12px !important; flex-wrap: wrap; }
+  #community-labs .button-element { flex: 1 1 240px; width: auto; }
+  #community-labs .primary-button { width: 100%; min-height: 54px; padding: 14px 20px; font-size: 19px; line-height: 1.25; }
+  .section._3rd-section .relative-block { display: flex; flex-direction: column-reverse; gap: 24px; }
+  .section._3rd-section .hero-content-wrap, .section._3rd-section .absolute-content-wrapper { position: static; height: auto; }
+  .section._3rd-section .third-grid { display: block; }
+  .section._3rd-section .content-div-v2 { padding: 0; width: 100%; height: auto; }
+  .section._3rd-section .hand-crafted-image { width: 100%; min-height: 0; height: auto; }
+  .dictionary-entry h2 { font-size: 34px !important; }
+  .faq-heading { font-size: 18px; line-height: 1.25; }
+  .faq-padding p { font-size: 17px; line-height: 1.4; }
+}
+/* Optional comparison: let the definition read beside the full artwork. */
+@media (min-width: 992px) {
+  body.layout-editorial .section._3rd-section .relative-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  body.layout-editorial .section._3rd-section .hero-content-wrap,
+  body.layout-editorial .section._3rd-section .absolute-content-wrapper { position: static; height: auto; }
+  body.layout-editorial .section._3rd-section .third-grid { display: block; }
+  body.layout-editorial .section._3rd-section .content-div-v2 { width: 100%; padding: 0; }
+  body.layout-editorial .section._3rd-section .hand-crafted-image { width: 100%; height: auto; min-height: 0; }
+}
+@media (min-width: 992px) {
+  body > #About.section > .container { padding-top: 112px; }
+
+}
+@media (max-width: 991px) {
+  #How-it-works .work-grid { row-gap: 24px !important; }
+  #How-it-works .work-card { padding-bottom: 76px !important; }
+  #How-it-works .card-image { bottom: 8px !important; }
+  #community-labs .cohort-impact-card { border-radius: 24px; }
+}
+
+@media (max-width: 991px) {
+  .section._3rd-section { background-image: none; }
+  .section._3rd-section .relative-block { padding: 24px; border-radius: 28px; background: linear-gradient(120deg, #e3e9fa, #dce8f0); }
+  .section._3rd-section .content-div-v2 { margin: 0; }
+}
+
+/* Third review: fit the original contours and restore emphatic hierarchy. */
+#About .h2-78px, #How-it-works .h2-78px, #community-labs .h2-60px {
+  font-weight: 700; letter-spacing: -.03em; line-height: 1.03;
+}
+.dictionary-entry .dictionary-plural { color: #59616d; font-weight: 400; }
+#community-labs .cohort-visual-label { border: 1px solid #68727c; }
+#community-labs .cohort-card-title { margin-bottom: 5px; line-height: 1.1; }
+#community-labs .cohort-card-meta { font-style: italic; font-weight: 400; color: #485568; margin-bottom: 12px; }
+#community-labs .cohort-card-summary, #community-labs .cohort-card-summary p { line-height: 1.28; }
+#How-it-works .work-card { display: grid; grid-template-columns: 24px minmax(0,1fr); align-content: start; column-gap: 6px; }
+#How-it-works .number { grid-column: 1; font-size: 21px; line-height: 1.1; margin: 0; }
+#How-it-works .h3-22px { grid-column: 2; font-size: 20px; line-height: 1.08; margin: 0 0 12px; }
+#How-it-works .text-18px { grid-column: 1 / -1; font-size: 17px; line-height: 1.28; margin-bottom: 0; }
+@media (min-width: 992px) {
+  body > .section:not(.hero-section):not(.footer) > .container { padding-top: 40px; padding-bottom: 40px; }
+  body > #About.section > .container { padding-top: 96px; }
+  #About .second-grid { position: relative; display: block; }
+  #About .content-div-v3 { position: absolute; left: 0; top: 5%; width: 38%; }
+  #About .h2-78px { font-size: 58px; line-height: 1.02; font-weight: 700; margin: 0; max-width: 11ch; }
+  #About .content-div { position: absolute; left: 53%; top: 42%; width: 47%; max-width: none; }
+  #About .text-31px { font-size: clamp(22px, 2.1vw, 26px); line-height: 1.25; }
+  #How-it-works .h2-78px, #community-labs .h2-60px { font-size: 46px; line-height: 1.03; }
+  #How-it-works .work-card { padding: 24px 18px 40px; }
+  #How-it-works .work-grid { margin-bottom: 104px !important; }
+  .section._3rd-section .third-grid { display: block; position: relative; }
+  .section._3rd-section .content-div-v2 { position: absolute; top: 23%; left: 0; width: 66%; padding: 0 24px 0 0; }
+  .section._3rd-section .text-30px-v2 { max-width: none; font-size: 22px; line-height: 1.25; }
+  .dictionary-entry { margin-top: 22px; }
+  #community-labs .heading-wrapper { max-width: 920px; }
+  #community-labs .cohort-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+  #community-labs .cohort-grid > .w-dyn-item { width: calc((100% - 24px) / 2); }
+}
+@media (min-width: 1200px) {
+  #community-labs .cohort-grid > .w-dyn-item { width: calc((100% - 72px) / 4); }
+  #community-labs .cohort-grid > .w-dyn-item:nth-child(n+5) { width: calc((100% - 120px) / 3.4); }
+}
+@media (max-width: 991px) {
+  #About .h2-78px, #How-it-works .h2-78px, #community-labs .h2-60px { font-weight: 700; line-height: 1.03 !important; }
+  #About .text-31px, .section._3rd-section .text-30px-v2 { line-height: 1.3; }
+}
+
+/* Fourth review: centered display headings and balanced image cutouts. */
+#How-it-works .heading-wrapper, #community-labs .heading-wrapper {
+  text-align: center; margin-left: auto; margin-right: auto;
+}
+#How-it-works .heading-wrapper > *, #community-labs .heading-wrapper > * {
+  text-align: center; margin-left: auto; margin-right: auto;
+}
+@media (min-width: 992px) {
+  #How-it-works .h2-78px, #community-labs .h2-60px {
+    font-family: Jost, sans-serif; font-size: 56px; font-weight: 700;
+    line-height: 1; letter-spacing: -.025em;
+  }
+  #community-labs .heading-wrapper { max-width: 1080px; }
+  #community-labs .h2-60px { max-width: 29ch; margin-bottom: 24px; }
+  #community-labs .text-32px { max-width: 68ch; }
+  #About .content-div-v3 { top: 4%; width: 38%; }
+  #About .h2-78px {
+    font-family: Jost, sans-serif; font-size: clamp(56px, 5.15vw, 72px);
+    line-height: .98; letter-spacing: -.025em; max-width: none;
+  }
+  #About .content-div {
+    top: 33%; height: 53%; display: flex; align-items: center;
+  }
+  .section._3rd-section .content-div-v2 {
+    top: 24%; bottom: auto; height: 72%; align-self: auto; left: 3%; width: 62%;
+    padding: 0 24px 0 0; display: flex; flex-direction: column;
+  }
+  .section._3rd-section .dictionary-entry { margin-top: auto; padding-top: 20px; }
+}
+@media (max-width: 991px) {
+  #How-it-works .h2-78px, #community-labs .h2-60px { font-family: Jost, sans-serif; font-size: 36px !important; line-height: 1 !important; }
+  #About .h2-78px { font-family: Jost, sans-serif; line-height: 1 !important; }
+}
+
+/* Fifth review: keep the definition together within its inset. */
+@media (min-width: 992px) {
+ .section._3rd-section .content-div-v2 { top: 29%; height: auto; }
+ .section._3rd-section .dictionary-entry { margin-top: 28px; padding-top: 0; }
+}
+
+/* Mobile review: content-sized actions and a padded dictionary inset. */
+@media (max-width: 991px) {
+  #community-labs .button-element { flex: 0 0 auto; width: 100%; }
+  #community-labs .heading-wrapper > * { text-align: left; }
+  #primordium .relative-block { padding: 12px; }
+  #primordium .content-div-v2 {
+    padding: 24px 20px; border-radius: 20px; box-sizing: border-box;
+  }
+  #primordium .dictionary-entry p { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  #primordium .dictionary-entry i { margin-left: 0; }
+}
+/* Native artwork proportions, with compact copy fitted to the mobile cutout. */
+@media (max-width: 899px) {
+  section.section.hero-section .hero-stage {
+    height: auto !important; aspect-ratio: 1122 / 1402;
+    margin-bottom: -41px !important;
+  }
+  section.section.hero-section .hero-blob img { object-fit: contain !important; }
+  section.section.hero-section .hero-copy { top: calc(43.4% + 6px); }
+  section.section.hero-section .hero-title { font-size: clamp(22px, 6.3vw, 40px) !important; line-height: 1 !important; }
+  section.section.hero-section .hero-ctas { margin-top: 6px !important; gap: 6px !important; }
+  section.section.hero-section .hero-cta { min-height: 36px; gap: 4px !important; }
+  section.section.hero-section .hero-cta__btn { height: 36px !important; min-height: 36px !important; }
+  section.section.hero-section .hero-cta__caption { font-size: 14px !important; line-height: 1.15 !important; }
+  body > #About.section > .container { padding-top: 24px !important; padding-bottom: 16px; }
+  #How-it-works > .container { padding-top: 16px; }
+}
+/* The content-led inset replaces the desktop illustration at tablet sizes too. */
+@media (max-width: 991px) {
+  #primordium .hand-crafted-image { display: none; }
+  #primordium .content-div-v2 { background: white; }
+}
+
+/* Mobile follow-up: balance the hero and repeat the definition's inset frame. */
+@media (max-width: 599px) {
+ section.section.hero-section .hero-copy { top: calc(43.4% + 20px); }
+ section.section.hero-section .hero-ctas { margin-top: 16px !important; gap: 10px !important; }
+ section.section.hero-section .hero-stage { margin-bottom: -65px !important; }
+ #About .relative-block { padding: 12px; border-radius: 28px; background: linear-gradient(120deg, #e3e9fa, #dce8f0); }
+ #About .second-grid { padding: 24px 20px; border-radius: 20px; background: white; }
+ #About .content-div-v3, #About .content-div { padding: 0; }
+ #About .h2-78px { margin-bottom: 16px !important; }
+ #About .text-31px { margin-bottom: 0; }
+}

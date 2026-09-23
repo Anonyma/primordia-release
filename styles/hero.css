@@ -1,0 +1,266 @@
+/* ========================================================================
+   Primordia — Hero. Beats Webflow .section.hero-section { height:100vh }.
+   ======================================================================== */
+
+html, body {
+  overflow-x: hidden !important;
+}
+
+section.section.hero-section {
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  height: calc(680 * 100vw / 1440) !important;
+}
+
+@media (min-width: 1440px) {
+  section.section.hero-section {
+    height: 680px !important;
+  }
+}
+
+/* Sticky white nav so it never floats over the wordmark */
+.navbar.w-nav,
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: #ffffff !important;
+  inset: auto !important;
+  width: 100% !important;
+}
+
+.navbar .logo { display: none !important; }
+.navbar .brand {
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  position: absolute !important;
+}
+
+.navbar .nav-content-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+.navbar .nav-link {
+  position: relative !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  margin: 0 !important;
+}
+.navbar .nav-link + .nav-link::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 2px !important;
+  height: 1.25rem !important;
+  background: #000 !important;
+}
+.navbar .nav-menu { margin-right: 0 !important; }
+/* Same rhythm as between nav links — no giant gap before Apply */
+.navbar .nav-button,
+.navbar a.nav-button.w-button {
+  margin-left: 1.25rem !important;
+  margin-right: 0 !important;
+}
+
+@media (max-width: 991px) {
+  .navbar .nav-button,
+  .navbar a.nav-button.w-button {
+    min-width: 0 !important;
+    padding: 0.45rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+section.section.hero-section .hero-scale-clip {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+section.section.hero-section .hero-stage {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 1440px !important;
+  height: 828px !important;
+  transform: scale(calc(100vw / 1440)) !important;
+  transform-origin: top left !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+@media (min-width: 1440px) {
+  section.section.hero-section .hero-stage {
+    left: 50% !important;
+    margin-left: -720px !important;
+    transform: none !important;
+  }
+}
+
+section.section.hero-section .hero-blob {
+  position: absolute !important;
+  left: 63px !important;
+  top: 22px !important;
+  width: 1241px !important;
+  height: 658px !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+section.section.hero-section .hero-blob__img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+}
+
+section.section.hero-section .hero-wordmark {
+  position: absolute !important;
+  left: 63px !important;
+  top: 34px !important;
+  width: 736px !important;
+  margin: 0 !important;
+  font-family: 'Jost', 'Futura', 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 125px !important;
+  line-height: 1 !important;
+  letter-spacing: -0.08em !important;
+  color: #000 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+}
+
+section.section.hero-section .hero-title {
+  position: absolute !important;
+  right: 162px !important;
+  top: 407px !important;
+  width: 730px !important;
+  margin: 0 !important;
+  font-family: 'Karla', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 66px !important;
+  line-height: 1.13 !important;
+  letter-spacing: -0.07em !important;
+  color: #000 !important;
+  text-align: right !important;
+  z-index: 2 !important;
+}
+
+section.section.hero-section .hero-ctas {
+  position: absolute !important;
+  left: 640px !important;
+  top: 579px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 26px !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+}
+section.section.hero-section .hero-cta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+section.section.hero-section .hero-cta--apply { width: 294px !important; }
+section.section.hero-section .hero-cta--fund { width: 318px !important; }
+section.section.hero-section .hero-cta__btn {
+  box-sizing: border-box !important;
+  height: 56px !important;
+  width: 100% !important;
+  border: 2.5px solid #000 !important;
+  border-radius: 39px !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: 'Karla', sans-serif !important;
+  font-weight: 500 !important;
+  font-synthesis: none !important;
+  font-size: 28px !important;
+  color: #000 !important;
+}
+section.section.hero-section .hero-cta--fund .hero-cta__btn {
+  background: #000 !important;
+  color: #fff !important;
+}
+section.section.hero-section .hero-cta__caption {
+  font-family: 'Karla', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  color: #000 !important;
+  text-align: center !important;
+}
+section.section.hero-section .container.full-height { display: none !important; }
+
+ .hero-copy { display: contents; }
+/* Approved mobile art direction; desktop declarations above stay unchanged. */
+.hero-blob picture { display: block; width: 100%; height: 100%; }
+a:focus-visible { outline: 3px solid #20545e; outline-offset: 4px; }
+@media (max-width: 899px) {
+  section.section.hero-section { height: auto !important; padding: 0 12px 24px !important; }
+  section.section.hero-section .hero-scale-clip { overflow: visible !important; }
+  section.section.hero-section .hero-stage {
+    position: relative !important; left: auto !important; top: auto !important;
+    width: 100% !important; max-width: 600px !important;
+    height: max(520px, 125vw) !important; max-height: 750px !important;
+    margin: 0 auto !important; transform: none !important;
+  }
+  section.section.hero-section .hero-blob { inset: 0 !important; width: 100% !important; height: 100% !important; }
+  section.section.hero-section .hero-wordmark {
+    left: 0 !important; top: 18% !important; width: 65% !important;
+    font-size: clamp(34px, 9.3vw, 59px) !important;
+  }
+  section.section.hero-section .hero-copy {
+    display: block; position: absolute; left: 23%; top: calc(43.4% + 20px); width: 76%; z-index: 2;
+  }
+  section.section.hero-section .hero-title {
+    position: static !important;
+    left: 23% !important; right: auto !important; top: calc(43.4% + 20px) !important;
+    width: 100% !important; font-size: clamp(26px, 6.3vw, 40px) !important;
+    line-height: 1.08 !important; text-align: left !important;
+  }
+  section.section.hero-section .hero-ctas {
+    position: static !important; width: 100% !important; margin-top: 20px !important;
+    flex-direction: column !important; gap: 11px !important;
+  }
+  section.section.hero-section .hero-cta { width: 100% !important; gap: 7px !important; min-height: 44px; }
+  section.section.hero-section .hero-cta__btn { height: 42px !important; border-width: 1.5px !important; font-size: 14px !important; }
+  section.section.hero-section .hero-cta__caption { font-size: 13px !important; line-height: 1.25 !important; }
+}
+@media (min-width: 640px) and (max-width: 899px) {
+  section.section.hero-section .hero-ctas { top: calc(43.4% + 160px) !important; }
+  section.section.hero-section .hero-cta__caption { font-size: 14px !important; }
+}
+
+@media (max-width: 360px) { section.section.hero-section .hero-stage { height: 560px !important; } }
+
+/* Mobile artwork includes transparent margins: compensate in layout. */
+@media (max-width: 899px) {
+  section.section.hero-section { padding-bottom: 0 !important; }
+  section.section.hero-section .hero-stage { top: -28px !important; margin-bottom: -64px !important; }
+  section.section.hero-section .hero-wordmark { top: 14% !important; }
+  #About > .container { padding-top: 28px !important; }
+}
+
+@media (max-width: 899px) {
+ section.section.hero-section .hero-stage { top: -41px !important; margin-bottom: -77px !important; }
+ section.section.hero-section .hero-cta--apply .hero-cta__caption { display: none !important; }
+ section.section.hero-section .hero-cta__btn { font-size: 17px !important; min-height: 44px !important; }
+}

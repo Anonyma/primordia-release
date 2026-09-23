@@ -1,9 +1,9 @@
 # Primordia Grants — Netlify configuration
-# Static site. No build step: HTML/CSS/JS are served as-is from the repo root.
+# Build and tests must pass before Netlify publishes the site.
 
 [build]
-  publish = "."
-  command = ""
+  publish = "static-dist"
+  command = "npm run build && npm test && npm run check"
 
 # ---- Pretty URLs: /apply instead of /apply.html ----
 [[redirects]]

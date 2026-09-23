@@ -1,0 +1,55 @@
+/* Readable handbook: current Primordia type, generous measure, organic artwork.
+   User-facing text must never be below 14px. Body copy here is 20–22px. */
+.handbook { font-size: 22px; line-height: 1.6; }
+.handbook .wrap { max-width: 1160px; }
+.handbook h1, .handbook h2 { letter-spacing: -.035em; text-wrap: balance; }
+.handbook h1 { font-family: 'Jost', sans-serif; font-weight: 700; font-size: clamp(52px, 5.5vw, 76px); line-height: .98; margin-bottom: 32px; }
+.handbook h2 { font-size: clamp(30px, 2.8vw, 38px); line-height: 1.16; }
+.handbook h3 { font-size: 25px; line-height: 1.25; margin-bottom: 12px; text-wrap: balance; }
+.handbook p { max-width: 68ch; margin: 0 0 24px; }
+.handbook p:last-child { margin-bottom: 0; }
+.handbook-hero { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 40px; padding-block: 64px 72px; }
+.handbook .lede { font-size: 24px; line-height: 1.5; }
+.handbook-art { width: 100%; height: auto; display: block; }
+.handbook-approach { padding-block: 24px 72px; }
+.handbook-approach h2 { margin-bottom: 30px; }
+.approach-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; list-style: none; margin: 0 0 32px; padding: 0; }
+.approach-list li { display: flex; align-items: center; gap: 12px; font-size: 23px; line-height: 1.25; font-weight: 600; }
+.approach-list li > span:first-child { font-family: 'Jost', sans-serif; font-size: 56px; line-height: 1; font-weight: 500; color: #71cdb5; -webkit-text-stroke: .5px #388873; }
+.approach-list li > span:first-child { display: flex; align-items: center; gap: 12px; }
+.approach-list li > span:first-child::after { content: ""; width: 1px; height: 42px; background: #9bcdbf; flex: none; }
+.handbook-approach > p { max-width: 80ch; }
+.handbook-section { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.8fr); gap: 72px; border-top: 1px solid #cad9d1; padding-block: 56px 64px; }
+.handbook-section h2 { margin: 0; }
+.handbook-copy { min-width: 0; }
+.handbook-copy h3:not(:first-child) { margin-top: 36px; }
+.handbook-copy a, .handbook-outcomes a { text-decoration-thickness: 1px; }
+.handbook-copy a:hover, .handbook-outcomes a:hover { text-decoration-thickness: 2px; }
+.handbook .handbook-outcomes { margin: 0; padding-block: 48px 64px; text-align: center; border-top: 1px solid #cad9d1; max-width: none; }
+@media (max-width: 899px) {
+ .handbook-hero { gap: 24px; padding-block: 40px 56px; grid-template-columns: 1.3fr 1fr; }
+ .handbook .lede { font-size: 22px; }
+ .approach-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+ .desktop-break { display: none; }
+ .handbook-section { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 599px) {
+ .handbook { font-size: 20px; line-height: 1.55; }
+ .handbook-hero { grid-template-columns: 1fr; gap: 12px; padding-block: 32px 24px; }
+ .handbook h1 { margin-bottom: 24px; }
+ .handbook-art { width: min(100%, 320px); justify-self: center; }
+ .handbook-approach { padding-block: 16px 40px; }
+ .approach-list { grid-template-columns: 1fr; gap: 20px; }
+ .approach-list li { font-size: 22px; }
+ .approach-list li > span:first-child { font-size: 42px; min-width: 26px; }
+ .handbook-section { grid-template-columns: 1fr; gap: 24px; padding-block: 36px 40px; }
+ .handbook h3 { font-size: 24px; }
+ .handbook-copy h3:not(:first-child) { margin-top: 28px; }
+ .handbook .handbook-outcomes { margin-bottom: 40px; }
+}
+
+@media (max-width: 599px) {
+ .handbook .handbook-outcomes { padding-block: 32px 40px; margin: 0; }
+ .handbook-outcomes .btn { padding: 12px 22px; }
+ .approach-list li > span:first-child::after { height: 34px; }
+}

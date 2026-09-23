@@ -1,0 +1,18 @@
+name: Production route monitor
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  routes:
+    if: github.repository == 'ThatMrE/primordia'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check public routes without submitting forms
+        run: |
+          for route in / /apply /fund-experiments; do
+            curl --fail --location --retry 2 --max-time 30 "https://primordiagrants.com$route" -o /tmp/page.html
+            test "$(wc -c < /tmp/page.html)" -gt 1000
+          done

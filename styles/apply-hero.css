@@ -1,0 +1,70 @@
+/* Approved variation C: mirror the artwork, preserve readable live text. */
+.apply-hero { padding: 44px 0 72px; border-bottom: 1px solid #dce2df; }
+.apply-hero > .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 64px; }
+.apply-hero .apply-title { font-size: clamp(44px, 4.5vw, 68px); font-weight: 700; line-height: 1.02; letter-spacing: -.04em; margin-bottom: 32px; }
+.apply-hero .lede { font-size: 22px; line-height: 1.45; margin-bottom: 32px; }
+.apply-status { font-size: 25px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+.apply-hero-button { border-radius: 14px; min-height: 62px; padding: 12px 38px; font-size: 25px; font-weight: 700; }
+.apply-hero .page-intro-art { width: 100%; max-width: none; max-height: none; }
+#application { scroll-margin-top: 28px; }
+.cohort-link { margin-bottom: 28px; }
+@media (max-width: 1100px) and (min-width: 900px) {
+ .apply-hero > .wrap { gap: 40px; }
+ .apply-hero .apply-title { font-size: 48px; }
+}
+@media (max-width: 899px) {
+ .apply-hero { padding: 28px 0 40px; }
+ .apply-hero > .wrap { grid-template-columns: 1fr; gap: 36px; }
+ .apply-hero .page-intro-art { max-width: 580px; justify-self: center; }
+ .apply-hero .page-intro-copy { max-width: 650px; }
+}
+@media (max-width: 599px) {
+ .apply-hero .apply-title { font-size: clamp(36px, 9vw, 52px); margin-bottom: 24px; }
+ .apply-hero .lede { font-size: 20px; margin-bottom: 28px; }
+ .apply-status { font-size: 23px; }
+ .apply-hero-button { min-height: 56px; font-size: 22px; }
+}
+
+/* Compact, progressively enhanced navigation on the Apply page. */
+.menu-toggle { display: none; }
+.apply-hero-links { display: flex; align-items: center; gap: 24px; }
+.hero-projects-link { display: block; padding-block: 6px; min-height: 48px; font-size: 17px; line-height: 1.3; text-underline-offset: 4px; }
+.hero-projects-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (max-width: 899px) {
+ .apply-header { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; padding: 16px 24px; }
+ .apply-header .menu-toggle:not([hidden]) { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 12px; background: transparent; color: inherit; border: 1px solid currentColor; border-radius: 12px; cursor: pointer; }
+ .apply-header nav { width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; }
+ .apply-header nav[data-collapsed="true"] { display: none; }
+ .apply-header nav a { min-height: 44px; }
+ .apply-header nav a + a { border-top: 1px solid #cad9d1; }
+ .apply-hero { padding-top: 12px; }
+ .apply-hero .page-intro-art { display: none; }
+ .apply-hero-links { display: flex; align-items: center; gap: 24px; }
+ .hero-projects-link { display: block; padding-block: 6px; min-height: 48px; font-size: 17px; line-height: 1.3; text-underline-offset: 4px; }
+ .cohort-link { display: none; }
+ .menu-toggle:focus-visible, .hero-projects-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+}
+@media (max-width: 380px) {
+ .apply-hero-links { gap: 18px; }
+ .apply-hero-button { padding-inline: 24px; }
+ .hero-projects-link { font-size: 16px; }
+}
+
+@media (min-width: 900px) {
+ .apply-hero-button { font-weight: 500; }
+}
+@media (max-width: 599px) {
+ .funding-criteria .panel h3 { margin-bottom: 6px; }
+}
+
+@media (max-width: 599px) {
+ .apply-header nav { font-size: 18px; }
+}
+
+/* Application opening updates, using the established social icons. */
+.application-follow-copy { font-size: 20px; line-height: 1.45; margin: 0 0 12px; }
+.application-social-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 28px; }
+.application-social-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 18px; text-underline-offset: 4px; }
+.application-social-links svg { flex: none; }
+.application-social-links a:hover { text-decoration-thickness: 2px; }
+.application-social-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
