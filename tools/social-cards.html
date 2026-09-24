@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Primordia sharing artwork</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Karla:wght@500&display=block" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; background: white; }
+    .card { position: relative; width: 1200px; height: 630px; overflow: hidden; color: black; background: white; }
+    .art { position: absolute; width: 1350px; height: auto; left: -85px; top: -20px; }
+    h1, h2 { position: absolute; margin: 0; }
+    /* Preserve the website's wordmark and headline tracking. */
+    h1 { left: 48px; top: 28px; font: 700 122px/1 Jost, sans-serif; letter-spacing: -.08em; white-space: nowrap; }
+    h2 { right: 48px; top: 395px; font: 500 62px/1.08 Karla, sans-serif; letter-spacing: -.07em; text-align: right; }
+    h2 span { display: block; white-space: nowrap; }
+    .square { height: 1200px; }
+    .square .art { width: 1280px; left: -40px; top: -180px; }
+    .square h1 { left: 56px; top: 76px; font-size: 120px; }
+    .square h2 { left: 308px; right: 56px; top: 604px; font-size: 112px; line-height: 1.06; text-align: left; }
+    .x { height: 600px; }
+    .x .art { top: -35px; }
+    .x h1 { top: 20px; font-size: 116px; }
+    .x h2 { top: 375px; font-size: 60px; }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Primordia. Funding Early Biology Experiments in DIY Labs">
+    <img class="art" src="../images/primordia_hero_shape.webp" alt="">
+    <h1>PRIMORDIA</h1>
+    <h2><span>Funding Early</span><span>Biology Experiments</span><span>in DIY Labs</span></h2>
+  </main>
+  <script>
+    const format = new URLSearchParams(location.search).get('format') || 'wide';
+    document.querySelector('.card').classList.add(format);
+    if (format === 'square') {
+      document.querySelector('.art').src = '../images/primordia_hero_shape_mobile.webp';
+      document.querySelector('h2').innerHTML = '<span>Funding Early</span><span>Biology</span><span>Experiments</span><span>in DIY Labs</span>';
+    }
+  </script>
+</body>
+</html>
