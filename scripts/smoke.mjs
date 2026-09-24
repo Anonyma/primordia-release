@@ -49,6 +49,42 @@ try {
  assert.match(await page.getByRole('heading',{level:1}).innerText(),/Applications opening at the end of September 2026/);
  assert.equal(await page.getByRole('link',{name:/Read the grantee handbook/}).getAttribute('href'),'/grantees');
  console.log('Application opening notice is visible; no form or submission controls are exposed.');
+
+ // Serve the built files under production and preview hostnames so the real
+ // browser executes the analytics gate without sending test events to Google.
+ const serveBuilt = async route => {
+  const pathname = new URL(route.request().url()).pathname;
+  const file = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
+  try {
+   if (!file.startsWith(root+'/') || !(await stat(file)).isFile()) throw Error('missing');
+   await route.fulfill({status:200,contentType:types[extname(file)]||'application/octet-stream',body:await readFile(file)});
+  } catch { await route.fulfill({status:404,body:'Not found'}); }
+ };
+ await page.route('https://www.primordiagrants.com/**', serveBuilt);
+ await page.route('https://deploy-preview-123--primordia.netlify.app/**', serveBuilt);
+ let tagRequests=0;
+ await page.route('https://www.googletagmanager.com/**', route => {tagRequests++;return route.fulfill({status:200,contentType:'text/javascript',body:''});});
+ await page.goto('https://www.primordiagrants.com/about.html');
+ assert.equal(tagRequests,0,'Google tag must not load before opt-in');
+ assert.equal(await page.getByRole('region',{name:'Analytics choice'}).isVisible(),true);
+ await page.getByRole('button',{name:'Accept analytics'}).click();
+ await page.waitForFunction(() => !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]'));
+ assert.equal(tagRequests,1,'Only one Google tag request after opt-in');
+ const commands=await page.evaluate(() => dataLayer.map(entry => [entry[0],entry[0]==='js'?undefined:entry[1]]));
+ assert.deepEqual(commands,[['consent','default'],['consent','update'],['js',undefined],['config','G-CL6PVYHE45']]);
+ tagRequests=0;
+ await page.reload();
+ await page.waitForFunction(() => !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]'));
+ assert.equal(tagRequests,1,'Stored opt-in loads one tag per page');
+ await page.getByRole('button',{name:'Cookie settings'}).click();
+ await page.getByRole('button',{name:'Decline'}).click();
+ await page.waitForLoadState('load');
+ assert.equal(tagRequests,1,'No Google tag request after withdrawal');
+ assert.equal(await page.evaluate(() => localStorage.getItem('pg-analytics-consent')),'declined');
+ await page.goto('https://deploy-preview-123--primordia.netlify.app/about.html');
+ assert.equal(await page.locator('.pg-consent').count(),0,'No analytics consent UI on deploy previews');
+ assert.equal(tagRequests,1,'No Google tag request on deploy previews');
+ console.log('Analytics host gate and consent choices passed in the browser.');
  assert.deepEqual(errors,[]);
  console.log('Routes and browser runtime passed. No production form was submitted.');
 }finally{await browser.close();server.close();}
