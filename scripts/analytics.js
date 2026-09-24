@@ -18,6 +18,7 @@
   let choice;
   try { choice = localStorage.getItem(storageKey); } catch { /* Storage can be disabled. */ }
   let loaded = false;
+  let googleScript;
 
   function startAnalytics() {
     if (loaded) return;
@@ -25,10 +26,10 @@
     window.gtag('consent', 'update', { analytics_storage: 'granted' });
     window.gtag('js', new Date());
     window.gtag('config', measurementId);
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    document.head.append(script);
+    googleScript = document.createElement('script');
+    googleScript.async = true;
+    googleScript.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.append(googleScript);
   }
 
   function saveChoice(value) {
@@ -49,7 +50,6 @@
     const value = event.target.closest('button[data-consent]')?.dataset.consent;
     if (value) saveChoice(value);
   });
-  document.body.append(banner);
 
   const settings = document.createElement('button');
   settings.type = 'button';
@@ -59,7 +59,18 @@
     banner.hidden = false;
     banner.querySelector('button').focus();
   });
-  (document.querySelector('footer') || document.body).append(settings);
+  const consentStyles = document.querySelector('link[href="/styles/analytics-consent.css"]');
+  function mountControls() {
+    if (!banner.isConnected) document.body.append(banner);
+    if (!settings.isConnected) (document.querySelector('footer') || document.body).append(settings);
+    if (consentStyles && !consentStyles.isConnected) document.head.append(consentStyles);
+    if (googleScript && !googleScript.isConnected) document.head.append(googleScript);
+  }
+  mountControls();
+  // Image Lab unpacks its app by replacing the document root after load.
+  new MutationObserver(() => {
+    if (!banner.isConnected || !settings.isConnected || (consentStyles && !consentStyles.isConnected) || (googleScript && !googleScript.isConnected)) mountControls();
+  }).observe(document, { childList: true });
 
   if (choice === 'accepted') startAnalytics();
 })();

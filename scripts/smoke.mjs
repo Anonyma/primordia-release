@@ -84,6 +84,15 @@ try {
  await page.goto('https://deploy-preview-123--primordia.netlify.app/about.html');
  assert.equal(await page.locator('.pg-consent').count(),0,'No analytics consent UI on deploy previews');
  assert.equal(tagRequests,1,'No Google tag request on deploy previews');
+ await page.goto('https://www.primordiagrants.com/about.html');
+ await page.evaluate(() => localStorage.removeItem('pg-analytics-consent'));
+ await page.goto('https://www.primordiagrants.com/image-lab.html');
+ await page.waitForFunction(() => !document.querySelector('script[src="/scripts/analytics.js"]'));
+ assert.equal(await page.getByRole('region',{name:'Analytics choice'}).isVisible(),true,'Consent choice must survive Image Lab document replacement');
+ tagRequests=0;
+ await page.getByRole('button',{name:'Accept analytics'}).click();
+ await page.waitForFunction(() => !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]'));
+ assert.equal(tagRequests,1,'Image Lab must load one Google tag after opt-in');
  console.log('Analytics host gate and consent choices passed in the browser.');
  assert.deepEqual(errors,[]);
  console.log('Routes and browser runtime passed. No production form was submitted.');
