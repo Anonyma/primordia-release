@@ -70,3 +70,7 @@
   for = "/assets/primordia.css"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Restore the form for synthetic tests in PR previews. Production stays closed.
+[context.deploy-preview.environment]
+  APPLICATION_FORM_MODE = "preview"

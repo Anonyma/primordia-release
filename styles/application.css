@@ -1,0 +1,11 @@
+/* Form resilience controls inherit the established Primordia page styles. */
+[data-draft-controls] { margin-block: 24px 40px; }
+.draft-choice { display: flex; align-items: center; gap: 12px; min-height: 48px; font-size: 18px; cursor: pointer; }
+.draft-choice input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: #000; }
+[data-draft-status], .form [role="status"] { font-size: 16px; }
+.form [readonly] { background: #f1f5f3; }
+.form button:disabled { opacity: .65; cursor: wait; }
+.form [hidden], form[hidden] { display: none; }
+.error-summary, [data-submission-success] { overflow-wrap: anywhere; }
+.error-summary:focus, [data-submission-success]:focus { outline: 2px solid #000; outline-offset: 6px; }
+#application-form-title { scroll-margin-top: 28px; }

@@ -1,0 +1,25 @@
+<section class="section" aria-labelledby="application-form-title"><div class="wrap narrow">
+<h2 id="application-form-title">Application</h2>
+<p>Each long answer can contain up to 10,000 characters. All fields are required except prior work and evidence. Amounts are in USD.</p>
+<p>Funded teams join a four-month program. <a href="/grantees">See the grantee handbook.</a></p>
+  <form class="form" name="grant-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+    <input type="hidden" name="form-name" value="grant-application">
+    <input type="hidden" name="form-version" value="2026-09-netlify-v1">
+    <input type="hidden" name="application-reference" value="">
+    <p class="hp" hidden><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <div data-draft-controls hidden>
+      <label class="draft-choice"><input type="checkbox" data-remember-draft> Save my draft on this device</label>
+      <p class="hint">Optional. Avoid shared devices. Drafts stay in this browser until you remove them. Drafts older than 30 days are removed when you next open this form. A confirmed submission with JavaScript enabled also removes the draft.</p>
+      <p data-draft-status role="status"></p>
+      <button class="btn" type="button" data-clear-draft>Remove saved draft</button>
+    </div>
+    <noscript><p>Your browser will submit this form directly. Keep a separate copy of your answers before submitting; draft saving and recovery require JavaScript.</p></noscript>
+    <div class="row2">
+      <div class="field"><label for="name">Name</label><input id="name" autocomplete="name" name="name" type="text" maxlength="200" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" autocomplete="email" name="email" type="email" maxlength="254" required></div>
+    </div>
+<div class="field"><label for="q1">Project summary &amp; hypothesis</label><p class="hint">In 5&ndash;7 sentences: what problem are you addressing? What are you testing?</p><textarea id="q1" name="project-summary" required maxlength="10000"></textarea></div><div class="field"><label for="q2">Experimental plan</label><p class="hint">What exactly will you do during the grant period? Methods, model system, assay, or computational approach.</p><textarea id="q2" name="experimental-plan" required maxlength="10000"></textarea></div><div class="field"><label for="q3">Success criteria &amp; next step</label><p class="hint">How will you know if this worked, and what is the next experiment if it does?</p><textarea id="q3" name="success-criteria" required maxlength="10000"></textarea></div><div class="field"><label for="q4">Prior work &amp; evidence <span class="opt">(optional)</span></label><p class="hint">Key papers, preprints, data, or links that support this approach.</p><textarea id="q4" name="prior-work" maxlength="10000"></textarea></div><div class="field"><label for="q5">Timeline &amp; milestones</label><p class="hint">What are the main milestones over the grant period?</p><textarea id="q5" name="timeline-milestones" required maxlength="10000"></textarea></div><div class="row2"><div class="field"><label for="q6">Total amount requested</label><input id="q6" name="budget-total" type="number" min="0.01" max="3000" step="0.01" placeholder="Up to $3,000 USD" required></div><div class="field"><label for="q8">Lab / infrastructure access</label><input id="q8" name="lab-access" maxlength="1000" type="text" placeholder="Physical lab, shared space, cloud compute" required></div></div><div class="field"><label for="q7">Budget breakdown</label><p class="hint">What will the funds be spent on? Materials, equipment, services, or compute.</p><textarea id="q7" name="budget-breakdown" required maxlength="10000"></textarea></div><div class="field"><label for="q9">Community impact</label><p class="hint">How will this benefit the scientific, local, or open-research community?</p><textarea id="q9" name="community-impact" required maxlength="10000"></textarea></div><div class="field"><label for="q10">Applicant bio &amp; affiliation</label><p class="hint">Who are you, and what relevant experience do you bring?</p><textarea id="q10" name="applicant-bio" required maxlength="10000"></textarea></div>
+    <div><button type="submit" class="btn btn--signal btn--lg">Submit application</button>
+    <p class="mono">Reviewed by a panel of community-lab leaders and practitioners.</p></div>
+  </form>
+</div></section>
