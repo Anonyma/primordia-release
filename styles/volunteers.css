@@ -1,0 +1,62 @@
+/* A new invitation inside the current homepage's white, botanical visual system. */
+.volunteer-page { font-size: 20px; }
+.volunteer-page p { max-width: 65ch; }
+.volunteer-header nav { font-size: 18px; }
+.volunteer-header [aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; }
+.volunteer-hero { padding: 64px 0 80px; }
+.volunteer-hero > .wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; }
+.volunteer-hero h1 { max-width: 10ch; font-size: clamp(52px, 5.8vw, 82px); }
+.volunteer-hero .lede { font-size: 26px; line-height: 1.3; max-width: 27ch; margin-bottom: 24px; }
+.volunteer-hero .page-intro-art { max-height: none; width: 100%; object-fit: contain; }
+.volunteer-page .hero__cta { align-items: center; gap: 12px 24px; margin-block: 32px 12px; }
+.volunteer-text-link { display: inline-flex; align-items: center; min-height: 48px; }
+.volunteer-email-note { font-size: 16px; line-height: 1.5; margin-block: 16px 0; overflow-wrap: anywhere; }
+.volunteer-email-note a { font-weight: 600; }
+.volunteer-section-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px 96px; }
+.volunteer-page main > .section { padding-block: 72px; }
+.volunteer-page main h2 { margin-bottom: 24px; font-size: clamp(32px, 3vw, 42px); }
+.volunteer-page h3 { font-family: 'Jost', sans-serif; font-size: 26px; font-weight: 600; }
+.volunteer-purpose { border-block: 1px solid #cad9d1; }
+.volunteer-contribution { padding-block: 28px; border-bottom: 1px solid #cad9d1; }
+.volunteer-contribution:first-child { padding-top: 0; }
+.volunteer-contribution p { margin: 0; }
+.volunteer-interest { background: #e3eff0; }
+.volunteer-interest a { overflow-wrap: anywhere; }
+.volunteer-intro-list { margin: 0 0 24px; padding-left: 24px; }
+.volunteer-intro-list li { margin-block: 10px; padding-left: 4px; }
+.volunteer-page .btn { font-size: 20px; }
+.volunteer-page .btn:hover { background: #20545e; color: #fff; border-color: #20545e; }
+.volunteer-page .menu-toggle { display: none; }
+@media (max-width: 1050px) {
+ .volunteer-hero > .wrap { gap: 32px; }
+ .volunteer-section-layout { gap: 32px 48px; }
+}
+@media (max-width: 899px) {
+ .volunteer-header { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; padding: 16px 24px; }
+ .volunteer-header .menu-toggle:not([hidden]) { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; padding: 12px; background: #fff; color: #000; border: 1px solid currentColor; border-radius: 12px; cursor: pointer; }
+ .volunteer-header nav { width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-block: 8px; }
+ .volunteer-header nav[data-collapsed="true"] { display: none; }
+ .volunteer-header nav a { min-height: 48px; }
+ .volunteer-header nav a + a { border-top: 1px solid #cad9d1; }
+ .volunteer-header .nav-apply { align-self: flex-start; margin-top: 8px; }
+ .volunteer-hero { padding-block: 32px 48px; }
+ .volunteer-hero > .wrap { grid-template-columns: 1fr; gap: 32px; }
+ .volunteer-hero .page-intro-copy { max-width: 650px; }
+ .volunteer-hero h1 { max-width: 12ch; }
+ .volunteer-hero .page-intro-art { width: min(100%, 340px); max-height: 220px; justify-self: center; }
+ .volunteer-section-layout { grid-template-columns: 1fr; gap: 12px; }
+ .volunteer-page main > .section { padding-block: 48px; }
+}
+@media (max-width: 599px) {
+ .volunteer-header { padding-inline: 20px; }
+ .volunteer-header .site-wordmark { font-size: 30px; }
+ .volunteer-hero h1 { font-size: clamp(44px, 11vw, 62px); }
+ .volunteer-hero .lede { font-size: 23px; }
+ .volunteer-page .hero__cta { align-items: stretch; gap: 8px; margin-top: 24px; }
+ .volunteer-page .hero__cta .volunteer-text-link { justify-content: center; }
+ .volunteer-hero .page-intro-art { max-height: 180px; }
+ .volunteer-page main > .section { padding-block: 40px; }
+ .volunteer-page main h2 { margin-bottom: 20px; }
+ .volunteer-contribution { padding-block: 24px; }
+ .volunteer-interest .btn { width: 100%; padding-inline: 20px; }
+}
