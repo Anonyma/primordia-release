@@ -195,7 +195,8 @@ body > .section:not(.hero-section) h3 { font-family: Karla, sans-serif; }
 #How-it-works .text-18px { grid-column: 1 / -1; font-size: 17px; line-height: 1.28; margin-bottom: 0; }
 @media (min-width: 992px) {
   body > .section:not(.hero-section):not(.footer) > .container { padding-top: 40px; padding-bottom: 40px; }
-  body > #About.section > .container { padding-top: 96px; }
+  /* Keep the About anchor close to its content and show more of the artwork. */
+  body > #About.section > .container { padding-top: 32px; }
   #About .second-grid { position: relative; display: block; }
   #About .content-div-v3 { position: absolute; left: 0; top: 5%; width: 38%; }
   #About .h2-78px { font-size: 58px; line-height: 1.02; font-weight: 700; margin: 0; max-width: 11ch; }

@@ -1,11 +1,11 @@
-/* Preserve variation C artwork; give the opening notice room beside it. */
+/* Keep the opening notice beside the horizontally reversed artwork. */
 .apply-hero { padding: 44px 0 72px; border-bottom: 1px solid #dce2df; }
 .apply-hero > .wrap { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; }
 .apply-hero .apply-title { font-size: clamp(44px, 4.5vw, 68px); font-weight: 700; line-height: 1.02; letter-spacing: -.04em; margin-bottom: 32px; }
 .apply-hero .lede { font-size: 22px; line-height: 1.45; margin-bottom: 32px; }
 .apply-status { font-size: 25px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
 .apply-hero-button { border-radius: 14px; min-height: 62px; padding: 12px 38px; font-size: 25px; font-weight: 700; }
-.apply-hero .page-intro-art { width: 100%; max-width: none; max-height: none; }
+.apply-hero .page-intro-art { width: 100%; max-width: none; max-height: none; transform: scaleX(-1); }
 #application { scroll-margin-top: 28px; }
 .cohort-link { margin-bottom: 28px; }
 @media (max-width: 1100px) and (min-width: 900px) {
@@ -62,9 +62,14 @@
 }
 
 /* Application opening updates, using the established social icons. */
-.application-follow-copy { font-size: 20px; line-height: 1.45; margin: 0 0 12px; }
 .application-social-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 28px; }
 .application-social-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 18px; text-decoration: none; }
 .application-social-links svg { flex: none; }
 .application-social-links a:hover { opacity: .68; }
 .application-social-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+/* Separate desktop destinations without adding spoken punctuation. */
+@media (min-width: 900px) {
+ .apply-header nav a + a { position: relative; }
+ .apply-header nav a + a::before { content: ""; position: absolute; left: -12px; height: 1em; border-left: 1px solid #65776d; }
+}
