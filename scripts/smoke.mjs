@@ -46,8 +46,9 @@ try {
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Opening notice overflow');
  }
  assert.equal(await page.locator('form, input, textarea, button[type="submit"]').count(),0,'Applications remain closed until intake is verified');
- assert.match(await page.getByRole('heading',{level:1}).innerText(),/Applications opening at the end of September 2026/);
+ assert.match(await page.getByRole('heading',{level:1}).innerText(),/Applications opening at the end of 2026/);
  assert.equal(await page.getByRole('link',{name:/Read the grantee handbook/}).getAttribute('href'),'/grantees');
+ assert.equal(await page.getByRole('link',{name:/Explore Cohort 1 projects/}).getAttribute('href'),'/#community-labs');
  console.log('Application opening notice is visible; no form or submission controls are exposed.');
  assert.deepEqual(errors,[]);
  console.log('Routes and browser runtime passed. No production form was submitted.');

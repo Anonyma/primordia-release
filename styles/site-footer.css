@@ -11,7 +11,7 @@
 .footer-text a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .footer-text a:hover { text-decoration-thickness: 2px; }
 .social-links { display: flex; justify-content: flex-end; gap: 12px; padding: 0; }
-.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #000; border-radius: 50%; }
+.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #000; border-radius: 50%; text-decoration: none; }
 .social-links a:hover { background: #fff; }
 .section.footer a:focus-visible { outline: 3px solid #20545e; outline-offset: 4px; }
 @media (max-width: 767px) {
